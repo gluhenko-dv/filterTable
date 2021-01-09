@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div id="root"></div>
+  <form action="" class="add-form">
+    <input class="add-name" type="text" placeholder="Марка">
+    <input class="add-model" type="text" placeholder="Модель">
+    <input class="add-year" type="text" placeholder="Год выпуска">
+    <input class="add-odometr" type="text" placeholder="пробег, км">
+    <button class="add-submit">Добавить</button>
+  </form>
+  <br>
+  <form action="" class="filter-form">
+    <input name="filter-name" class="filter-name" type="text" placeholder="Марка">
+    <input name="filter-model" class="filter-model" type="text" placeholder="Модель">
+    <input name="filter-year" class="filter-year" type="text" placeholder="Год выпуска">
+    <input name="filter-odometr" class="filter-odometr" type="text" placeholder="пробег, км">
+  </form>
+
+  <table>
+    <thead>
+      <th class="number">№</th>
+      <th class="name">Марка</th>
+      <th class="model">Модель</th>
+      <th class="year">Год выпуска</th>
+      <th class="odometr">Пробег</th>
+    </thead>
+    <tbody class="car-table">
+    </tbody>
+  </table>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>
