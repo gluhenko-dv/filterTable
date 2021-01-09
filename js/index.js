@@ -11,7 +11,9 @@ const carList = () => {
     filterForm = document.querySelector(".filter-form"),
     carTable = document.querySelector(".car-table");
 
-  let carData = localStorage.carData ? JSON.parse(localStorage.carData) : [];
+
+    let carData;
+
   //сохранение в локал
   const saveLocalStorage = (carData) => {
     const json = JSON.stringify(carData);
@@ -68,9 +70,7 @@ const carList = () => {
     });
   };
 
-  const renderCarTable = (
-    carData = localStorage.carData ? JSON.parse(localStorage.carData) : []
-  ) => {
+  const renderCarTable = (carData) => {
     carTable.textContent = "";
     let number = 1;
     carData.forEach((item) => {
@@ -116,8 +116,38 @@ const carList = () => {
     });
   };
 
+  const start = () => {
+
+    carData = localStorage.carData ? JSON.parse(localStorage.carData) : [];
+
+    const startData = [
+      { name: "Mazda", model: "3/bk", year: "2006", odometr: "217000" },
+      { name: "Mazda", model: "6", year: "2010", odometr: "21000" },
+      { name: "Mazda", model: "3", year: "2020", odometr: "20000" },
+      { name: "Toyota", model: "Corolla", year: "2004", odometr: "15600" },
+      { name: "BMW", model: "3", year: "2020", odometr: "3000" },
+      { name: "BMW", model: "6", year: "2020", odometr: "45000" },
+      { name: "BMW", model: "3", year: "2020", odometr: "60000" },
+      { name: "BMW", model: "X5M", year: "2020", odometr: "5000" },
+      { name: "Suzuki", model: "SX-4", year: "2010", odometr: "130000" },
+      { name: "ВАЗ", model: "2106", year: "1998", odometr: "33333" },
+    ];
+
+    if (!carData.length) {
+      const json = JSON.stringify(startData);
+      localStorage.carData = json;
+      start();
+    }
+
+    renderCarTable(carData);
+
+  };
+
+
+  start();
+
   addCar();
-  renderCarTable();
+  renderCarTable(carData);
   filterCartable();
   sortCarTable();
 };
