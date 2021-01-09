@@ -29,7 +29,7 @@ const carList = () => {
     };
 
     filterInputs.forEach((input) => {
-      input.addEventListener("change", () => {
+      input.addEventListener("input", () => {
         let newData = carData;
 
         if (input.name === "filter-name") filterData.name = input.value;
